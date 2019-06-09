@@ -1,0 +1,53 @@
+     <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+</head>
+<body>
+    <div id="app">
+        <h2>1. v-for 遍历数组</h2>
+        <ul>
+            <li v-for="(r,i) in record" :key="i">
+                <!--{{r为当前元素，i为当前元素下标}}-->
+                {{i}}===={{r.name}}====={{r.time}}
+                ----- <button @click="deleteC(i)">删除</button>
+                ----- <button @click="updateC(i,{name:'leeyw',time:'1999'})">更新</button>
+            </li>
+        </ul>
+        <h2>2. v-for 遍历对象</h2>
+        <ul>
+            <li v-for="(value,key) in record[0]" :key="key">{{key}}----{{value}}</li>
+        </ul>
+    </div>
+    <script src="../js/node_modules/vue/dist/vue.js"></script>
+    <script>
+        // Vue重写了数组中的一些原生方法，如pop push splice等等，让一组数据再实现原有效果的同时再更新到页面上，数组内部改变，界面自动变化
+        // 这也叫变异方法
+        const vm = new Vue({
+            el:'#app',
+            data: {
+                record:[
+                    {name:'tom',time:'2019'},
+                    {name:'jack',time:'2020'},
+                    {name:'jerry',time:'2021'},
+                    {name:'thomson',time:'2022'}
+                ]
+            },
+            methods: {
+                deleteC(i) {
+                    //删除指定i的元素
+                    this.record.splice (i,1)
+                },
+                updateC(i,newC){
+                    //splice 可以实现增删改 para1：元素下标 para2：修改几个元素 para3：新元素
+                    this.record.splice (i,1,newC)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

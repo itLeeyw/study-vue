@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条件渲染</title>
+</head>
+<body>
+<!--
+    条件渲染指令
+    v-if
+    v-else
+    v-show
+
+    v-if and v-show
+    如果需要频繁切换 使用v-show
+-->
+    <div id="app">
+        <p v-if="ok">成功了</p>
+        <p v-else>失败了</p>
+        //每次判断v-if else 都要重新再document上渲染一遍，不推荐再多次切换时候使用
+
+        <p v-show="ok">表白成功</p>
+        <p v-show="!ok">表白失败</p>
+        <button @click="ok = !ok">toggle</button>
+    </div>
+<script src="../js/node_modules/vue/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data: {
+            ok: false,
+
+        }
+    })
+</script>
+</body>
+</html>

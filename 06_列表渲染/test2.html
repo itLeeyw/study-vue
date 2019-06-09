@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表查询 and 排序</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="searchName"/>
+        <ul>
+            <li v-for="(c,i) in filterRecord" :key="i">
+                {{i}} ------ {{c.name}} ------ {{c.time}}
+            </li>
+        </ul>
+        <button @click="setOrderType(1)">时间升序</button>
+        <button @click="setOrderType(-1)">时间降序</button>
+        <button @click="setOrderType(0)">原本顺序</button>
+    </div>
+    <script src="../js/node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data: {
+                searchName:'',
+                ok:false,
+                orderType:0, // 0代表原本顺序
+                record:[
+                    {name:'tom',time:'2019'},
+                    {name:'jack',time:'2020'},
+                    {name:'jerry',time:'2021'},
+                    {name:'thomson',time:'2022'}
+                ]
+            },
+            computed: {
+                filterRecord() {
+                    //取除相关的数据
+                    const {searchName,record,orderType} = this
+                    let fRecord;
+                    //开始过滤
+                    fRecord = record.filter(c => c.name.indexOf(searchName) !== -1)
+
+                    //排序
+                    if(orderType !== 0){
+                        fRecord.sort(function (c1, c2) {
+                           if(orderType == 1){
+                               return 1;
+                           }else{
+                               return -1;
+                           }
+                        })
+                    }
+                    return fRecord;
+                }
+            },
+            methods:{
+                setOrderType(orderType){
+                    this.orderType = orderType
+                }
+            }
+        })
+    </script>
+</body>
+</html>

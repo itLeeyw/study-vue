@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板语法</title>
+</head>
+<body>
+    <div id="app">
+        <h2>1. 通过{{}}语法显示数据(可以使用js语法)</h2>
+        <h3>{{message}}</h3>
+        <h3>{{message.toUpperCase()}}</h3>
+        <hr />
+        使用v-text<h3 v-text="html"></h3>
+        使用v-html<h3 v-html="html"></h3>
+        <br/><br/>
+        <h2>2. v-bind绑定属性 </h2>
+        <img :src="imgUrl" style="width: 60px; height: 60px;" />
+        <br /><br/>
+        <h2>3. v-on:event 绑定事件</h2>
+        <button @click="test" style="width: 60px; height: 60px;">v-on:click</button>
+    </div>
+
+    <script src="../js/node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                msg: "你好",
+                message: "我的数据由view获取model数据显示",
+                html:'<a href="">我是URL</a>',
+                imgUrl:"https://vuejs.bootcss.com/images/logo.png"
+            },
+            methods: {
+                test(){
+                    alert(this.msg);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
