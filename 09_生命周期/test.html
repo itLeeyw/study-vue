@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生命周期</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="destroyVM">destroy vue</button>
+        <p v-show="isShow">测试生命周期</p>
+    </div>
+    <script src="../js/node_modules/vue/dist/vue.js"></script>
+    <script>
+        //mounted :发送ajax 请求，启动定时器等异步任务
+        //beforeDestory : 做收尾工作，如清除定时器
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                isShow:true
+            },
+            //初始化阶段
+            beforeCreate(){
+              console.log("beforeCreate调用")
+            },
+            created(){
+              console.log("Created调用")
+            },
+            beforeMount(){
+                console.log("beformount调用")
+            },
+            mounted() {//初始化显示后调用
+                this.id =setInterval( () => {
+                    console.log("mounted调用")
+                    this.isShow = !this.isShow
+                },1000)
+            },
+
+            //更新阶段
+            beforeUpdate(){
+                console.log("beforeUpdate调用")
+            },
+            updated(){
+                console.log("updated调用")
+            },
+
+            //死亡阶段
+            beforeDestroy(){//死亡之前被调用一次
+                //清除定时器
+                console.log("beforeDestroy调用")
+                clearInterval(this.id)
+            },
+            destroyed(){
+                console.log("destroyed调用")
+            },
+            methods:{
+                destroyVM() {
+                    //销毁vm
+                    this.$destroy()
+                }
+            }
+        })
+    </script>
+</body>
+</html>
