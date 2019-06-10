@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>指令</title>
+    <style>
+        <!-- [] = 属性选择器 -->
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input ref="content" type="text" v-model="text"></input>
+        <button @click="hint">提示</button>
+        <!--v-clock只有在vue初始化之前存在 -->
+        <p v-cloak>{{text}}</p>
+    </div>
+
+    <br>
+    <div id="app1">
+        写在全局的自定义指令（转大写）：<p v-upper-text="msg"></p>
+        写在局部的自定义指令（转小写）：<p v-lower-text="msg"></p>
+    </div>
+
+    <script src="../js/node_modules/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.directive('upper-text',function (el,binding) {//注册全局指令
+            //el:指令属性所在的标签，binding:包含指令相关信息对象
+            console.log(el,binding)
+            el.textContent = binding.value.toUpperCase()
+        })
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                text:"leeyw"
+            },
+            methods:{
+                hint(){
+                    console.log(this.$refs.content.value)
+                    alert(this.$refs.content.value)
+                }
+            }
+        })
+
+        new Vue({
+            el:'#app1',
+            data:{
+                msg:'i know it when i see it'
+            },
+            directives:{//注册局部指令
+                'lower-text':function (el, binding) {
+                    el.textContent = binding.value.toLowerCase()
+                }
+            }
+        })
+    </script>
+</body>
+</html>
