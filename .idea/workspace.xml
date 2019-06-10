@@ -53,14 +53,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/10_动画/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="66" column="62" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
+            <state relative-caret-position="192">
+              <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#p#0;n#transition#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/11_过滤器/test.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -101,6 +110,7 @@
         <option value="$PROJECT_DIR$/08_表单输入绑定/test.html" />
         <option value="$PROJECT_DIR$/09_生命周期/test.html" />
         <option value="$PROJECT_DIR$/10_动画/test.html" />
+        <option value="$PROJECT_DIR$/11_过滤器/test.html" />
       </list>
     </option>
   </component>
@@ -110,7 +120,7 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="965" />
     <option name="y" value="365" />
     <option name="width" value="1440" />
@@ -129,11 +139,6 @@
             <path>
               <item name="vue" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue" type="462c0819:PsiDirectoryNode" />
-              <item name="10_动画" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -175,12 +180,12 @@
       <workItem from="1559795515510" duration="7061000" />
       <workItem from="1559883420796" duration="2763000" />
       <workItem from="1560054691107" duration="7017000" />
-      <workItem from="1560166391054" duration="1957000" />
+      <workItem from="1560166391054" duration="4146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32500000" />
+    <option name="totallyTimeSpent" value="34689000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -391,11 +396,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/10_动画/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="66" column="62" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
+        <state relative-caret-position="192">
+          <caret line="55" column="21" lean-forward="true" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#p#0;n#transition#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11_过滤器/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="47" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
         </state>
       </provider>
     </entry>
