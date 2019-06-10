@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过渡动画</title>
+    <style>
+        <!--显示和隐藏的过度-->
+        .xxx-enter-active, .xxx-leave-active{
+            transition:opacity .5s;
+        }
+        /*隐藏时候的样式*/
+        .xxx-enter, .xxx-leave-to{
+            opacity: 0;
+        }
+
+        /* 可以设置不同的进入和离开动画 */
+        /* 设置持续时间和动画函数 */
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+        .slide-fade-leave-active {
+            transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+        .slide-fade-enter, .slide-fade-leave-to
+            /* .slide-fade-leave-active for below version 2.1.8 */ {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+        .bounce-enter-active {
+            animation: bounce-in .5s;
+        }
+        .bounce-leave-active {
+            animation: bounce-in .5s reverse;
+        }
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="isShow = !isShow">toggle</button>
+        <transition name="xxx">
+            <p v-show="isShow" class="xxx-enter-to">hello</p>
+        </transition>
+    </div>
+    <div id="example-1">
+        <button @click="isShow = !isShow">
+            Toggle render
+        </button>
+        <transition name="slide-fade">
+            <p v-if="isShow">hello</p>
+        </transition>
+    </div>
+    <div id="example-2">
+        <button @click="show = !show">Toggle show</button><br>
+        <transition name="bounce">
+            <p v-if="show" style="display: inline-block;">leeywwwwwwwwwww</p>
+        </transition>
+    </div>
+    <script src="../js/node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data () {
+                return {
+                    isShow : true
+                }
+            }
+        })
+        new Vue({
+            el:'#example-1',
+            data () {
+                return {
+                    isShow : true
+                }
+            }
+        })
+        new Vue({
+            el: '#example-2',
+            data: {
+                show: true
+            }
+        })
+    </script>
+</body>
+</html>
