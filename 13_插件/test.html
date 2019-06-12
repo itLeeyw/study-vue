@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 插件</title>
+</head>
+<body>
+    <div id="app">
+        <p v-my-directive="msg"></p>
+    </div>
+    <script src="../js/node_modules/vue/dist/vue.js"></script>
+
+    <script src="./vue-myPlugin.js"></script>
+    <script>
+        Vue.use(MyPlugin)//内部执行MyPlugin.install(Vue)
+        
+        Vue.myGlobalMethod()
+
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'leeyw'
+            }
+        })
+        vm.$myMethod()
+    </script>
+</body>
+</html>
