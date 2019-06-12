@@ -1,28 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <img class="logo" src="./assets/logo.png" alt="logo">
+    <!--3.使用组件标签-->
+    <HelloWorld></HelloWorld>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  //1. 引入已开发好的组件
+  import HelloWorld from './components/HelloWorld'
+  export default {
+    //2. 映射标签
+    components:{
+      HelloWorld
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .logo {
+    width: 200px;
+    height: 200px;
+  }
 </style>
